@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 208 100% 97%; /* Very light blue (#F0F8FF) */
+    --foreground: 220 13% 10%; /* Darker, neutral text color */
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 10%;
+    --primary: 208 98% 73%; /* Soft blue (#77B5FE) */
+    --primary-foreground: 210 40% 15%; /* Dark blue for text on primary */
+    --secondary: 208 100% 90%; /* Lighter blue for secondary elements */
+    --secondary-foreground: 210 40% 15%;
+    --muted: 208 100% 90%;
+    --muted-foreground: 210 30% 40%;
+    --accent: 210 52% 54%; /* Darker shade of blue (#4F86C6) */
+    --accent-foreground: 0 0% 98%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 208 50% 85%; /* Lighter blue border */
+    --input: 208 50% 90%; /* Lighter blue input background */
+    --ring: 208 98% 73%; /* Primary color for rings */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 220 13% 10%; /* Dark blue background for dark mode */
+    --foreground: 0 0% 98%;
+    --card: 220 13% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 13% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 208 98% 73%; /* Soft blue (#77B5FE) */
+    --primary-foreground: 210 40% 15%; /* Dark blue for text on primary */
+    --secondary: 220 13% 18%; /* Darker blue for secondary elements */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 13% 18%;
+    --muted-foreground: 210 30% 70%;
+    --accent: 210 52% 54%; /* Darker shade of blue (#4F86C6) */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 25%; /* Darker blue border */
+    --input: 220 13% 20%; /* Darker blue input background */
+    --ring: 208 98% 73%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@media print {
+  body {
+    padding-top: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 10pt;
+  }
+
+  header[data-main-header],
+  footer[data-main-footer],
+  #admin-panel-header,
+  .no-print {
+    display: none !important;
+  }
+  
+  .students-table-print-card {
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    page-break-before: auto;
+    page-break-inside: avoid;
+  }
+
+  .students-table-print-card .card-header,
+  .students-table-print-card .card-content {
+     padding-top: 0.5rem !important;
+     padding-left: 0 !important;
+     padding-right: 0 !important;
+     padding-bottom: 0.5rem !important;
+  }
+  
+  .students-table-print-card .card-title,
+  .students-table-print-card .card-description {
+    color: black !important;
+    text-align: center; /* Center title for print */
+    margin-bottom: 0.5rem;
+  }
+
+  .students-table-print-card table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important; /* Slightly smaller font for more data */
+  }
+
+  .students-table-print-card th,
+  .students-table-print-card td {
+    border: 1px solid #333 !important; /* Solid black border */
+    padding: 4px !important; /* Adjust padding for density */
+    color: black !important;
+    text-align: left; /* Ensure text aligns left in cells */
+    page-break-inside: avoid !important;
+  }
+  
+  .students-table-print-card th {
+    background-color: #e0e0e0 !important; /* Lighter gray for headers */
+    font-weight: bold;
+  }
+
+  .students-table-print-card tr {
+    page-break-inside: avoid !important;
+  }
+
+  .students-table-print-card .badge {
+    border: 1px solid #999 !important;
+    background-color: #f0f0f0 !important; /* Light background for badges */
+    color: black !important;
+    padding: 0.1em 0.4em !important;
+    font-size: 8pt !important;
+    border-radius: 4px !important;
+    display: inline-block; /* Ensure badges are not overly disruptive */
+  }
+  
+  .students-table-print-card .bg-card,
+  .students-table-print-card .bg-muted\/50,
+  .students-table-print-card .bg-muted {
+    background-color: transparent !important;
+  }
+
+  .students-table-print-card .shadow-lg,
+  .students-table-print-card .shadow-2xl,
+  .students-table-print-card .shadow-md,
+  .students-table-print-card .border {
+    box-shadow: none !important;
+    border: none !important; 
+  }
+
+  .students-table-print-card .rounded-md,
+  .students-table-print-card .rounded-lg {
+    border-radius: 0 !important;
+  }
+  
+  .students-table-print-card * {
+    color: black !important; 
+    background-color: transparent !important; 
+    box-shadow: none !important;
+  }
+
+  .students-table-print-card .text-center {
+    text-align: center !important;
+  }
+  .students-table-print-card .font-medium {
+    font-weight: normal !important; /* Reset custom font weights if not desired for print */
+  }
+  .students-table-print-card .font-semibold {
+    font-weight: bold !important; /* Ensure headers are bold */
+  }
+}
