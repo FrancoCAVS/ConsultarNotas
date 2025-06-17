@@ -72,7 +72,7 @@ export default function LoginPage() {
                     <FormLabel>Nombre de Usuario</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="E.g. jyampa"
+                        placeholder=""
                         {...field}
                         disabled={isPending}
                       />
