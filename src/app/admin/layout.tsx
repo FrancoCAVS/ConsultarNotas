@@ -6,6 +6,8 @@ import { logoutAdmin } from '@/lib/actions';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
 
+export const runtime = 'edge'
+
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   const cookieStore = cookies();
   const authCookie = cookieStore.get('admin-auth');

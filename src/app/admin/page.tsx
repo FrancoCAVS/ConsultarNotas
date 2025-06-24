@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Separator } from '@/components/ui/separator';
 import { Eye } from 'lucide-react';
 
+export const runtime = 'edge'
+
 export default function AdminPage() {
   return (
     <div className="space-y-8">
